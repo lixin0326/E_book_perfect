@@ -1,0 +1,14 @@
+<div class="search_result">
+    <ul>
+
+        {% for book in books %}
+            <li><img src="{{ book.image_url }}"></li>
+            <li>书名:{{ book.book_name }}</li>
+            <li>作者:{{ book.author }}</li>
+            <li>简介:{{ book.info }}</li>
+            <li>价格:{{ book.price }}</li>
+        {% endfor %}
+
+
+    </ul>
+</div>

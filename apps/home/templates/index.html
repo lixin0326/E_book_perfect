@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+    E_book.com
+{% endblock %}
+
+{% load staticfiles %}
+{% block page_css %}
+    <script type="text/css"></script>
+    <style type="text/css">
+        #main_page {
+            position: absolute;
+        }
+        #classify {
+            position: relative;
+            margin-left: 120px;
+            width: 984px;
+        }
+        #book_list {
+            position: relative;
+            margin-left: 30px;
+        }
+    </style>
+{% endblock %}
+
+
+{% block page_jq %}
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+{% endblock %}
+
+{% block page_head %}
+    {# 头部部分#}
+    {% include 'home/home_top_page.html' %}
+{% endblock %}
+
+{% block page_main %}
+    {#   轮播图 主要内容#}
+    {% include 'home/banner.html' %}
+    {% include 'home/main_page.html' %}
+
+{% endblock %}
+
+{% block page_footer %}
+
+{% endblock %}

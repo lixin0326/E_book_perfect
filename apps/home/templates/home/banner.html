@@ -1,0 +1,70 @@
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><a href="#"><img src="/static/images/1.jpg"></a></div>
+        <div class="swiper-slide"><a href="#"><img src="/static/images/2.jpg"></a></div>
+        <div class="swiper-slide"><a href="#"><img src="/static/images/3.jpg"></a></div>
+        <div class="swiper-slide"><a href="#"><img src="/static/images/4.jpg"></a></div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+
+<link rel="stylesheet" href="/static/css/swiper.css">
+
+<!-- Demo styles -->
+<style>
+    .swiper-container {
+        position: relative;
+        top: -20px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .swiper-slide > a > img {
+        width: 100%;
+        height: 400px;
+
+    }
+
+</style>
+
+<script src="/static/js/swiper.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>

@@ -1,0 +1,30 @@
+<div id="detail_page">
+    <img src="{{ books.image_url }}">
+    <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 16px">
+        书名:{{ books.book_name }}</p>
+    <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 16px">
+        作者:{{ books.author }}</p>
+    <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 16px">
+        简介:{{ books.info }}</p>
+    <div class="amount_box" style="position:relative;left: 260px;top:160px;">
+        <a href="javascript:;" class="reduce reSty">-</a>
+        <input type="text" value="1" class="sum" id="number">
+        <a href="javascript:;" class="plus">+</a>
+    </div>
+    <p style="font-size: 16px;color: red;">价格:{{ books.price }}$</p>
+    <a href="#">
+        <button type="button" class="btn btn-primary" id="buy_now">立即购买</button>
+    </a>
+    <a href="#">
+        <button type="button" class="btn btn-default" id="add_cars">加入购物车</button>
+    </a>
+
+    <div id="chapter">
+        <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 20px">
+            <b>章节:</b></p>
+        {% for cha in chapter %}
+            <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 16px">
+                <a href="{{ cha.c_url }}" target="_blank">{{ cha.c_name }}</a></p>
+        {% endfor %}
+    </div>
+</div>

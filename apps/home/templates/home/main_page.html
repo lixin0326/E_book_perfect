@@ -1,0 +1,27 @@
+<div id="main_page">
+    {#    图书分类名称#}
+    <div id="classify">
+        <ul class="nav nav-tabs" role="tablist">
+            {% for cla in classify %}
+                <li role="presentation">
+                    <a href="{% url 'cat_home' %}?cid={{ cla.cla_id }}">{{ cla.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div id="book_list">
+        {% for b in book %}
+            <a href="{% url 'showDetail' %}?book_id={{ b.book_id }}" target="_blank">
+                <div style="width: 20%;float: left;padding: 10px;">
+                    <img src="{{ b.image_url }}" style="width: 200px;height: 300px;">
+                    <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 16px">
+                        书名:{{ b.book_name }}</p>
+                    <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 16px">
+                        作者:{{ b.author }}</p>
+                    <p style="font-size: 16px;color: red">价格:{{ b.price }}$</p>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</div>

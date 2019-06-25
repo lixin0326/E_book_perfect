@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+    购物车
+{% endblock %}
+
+{% block page_css %}
+    {% load staticfiles %}
+    <script type="text/css"></script>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/carts.css' %}">
+{% endblock %}
+
+{% block page_jq %}
+    <script type="text/javascript"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/car.js' %}"></script>
+
+{% endblock %}
+
+
+{% block page_head %}
+
+{% endblock %}
+
+{% block page_main %}
+    {% include 'cc/info.html' %}
+{% endblock %}
+
+{% block page_footer %}
+
+{% endblock %}l %}

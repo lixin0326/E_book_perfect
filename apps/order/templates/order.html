@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load custom_filter %}
+
+{% block title %}
+    订单
+{% endblock %}
+{% load staticfiles %}
+{% block page_css %}
+    <link rel="stylesheet" href="{% static 'css/tasp.css' %}"/>
+    <link href="{% static 'css/orderconfirm.css' %}" rel="stylesheet"/>
+    <style>
+        #page {
+            width: auto;
+        }
+
+        #comm-header-inner, #content {
+            width: 950px;
+            margin: auto;
+        }
+
+        #logo {
+            padding-top: 26px;
+            padding-bottom: 12px;
+        }
+
+        #header .wrap-box {
+            margin-top: -67px;
+        }
+
+        #logo .logo {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 140px;
+            height: 35px;
+            font-size: 35px;
+            line-height: 35px;
+            color: #f40;
+        }
+
+        #logo .logo .i {
+            position: absolute;
+            width: 140px;
+            height: 35px;
+            top: 0;
+            left: 0;
+            background: url(http://a.tbcdn.cn/tbsp/img/header/logo.png);
+        }
+    </style>
+{% endblock %}
+
+{% block page_jq %}
+    {#    <script type="text/javascript">#}
+    {#        $(function () {#}
+    {##}
+    {##}
+    {#            var sum_price = $('.book_price');#}
+    {#            var b = 0;#}
+    {#            for (var i = 0; i < sum_price.length; i++) {#}
+    {#                b += parseFloat($(sum_price[i]).html());#}
+    {#            }#}
+    {#            var out_momey = $('#J_ActualFee');#}
+    {#            out_momey.html(b);#}
+    {##}
+    {#        })#}
+    {#    </script>#}
+    <script type="text/javascript">
+        $(function () {
+            $('#J_Go').click(function () {
+                let sumprice = $('#J_ActualFee').text();
+                let order_code = $('#order_code').text();
+                {#let pay_url = 'http://127.0.0.1:8688/pay/ali_pay/';#}
+                {#$.post(sumprice, function () {#}
+                {#window.location.href = 'http://127.0.0.1:8688/pay/ali_pay/'#}
+                {#{)#}
+
+                window.location.href = 'http://127.0.0.1:8688/pay/ali_pay/?sumprice=' + sumprice + '&order_code=' + order_code
+            });
+        })
+    </script>
+{% endblock %}
+
+{% block page_head %}
+    {% include 'home/home_top_page.html' %}
+{% endblock %}
+
+{% block page_main %}
+    {% include 'oo/info.html' %}
+{% endblock %}
+
+{% block page_footer %}
+
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    详情页面
+{% endblock %}
+
+{% load staticfiles %}
+{% block page_css %}
+
+
+    <script type="text/css"></script>
+    <style>
+        #detail_page {
+            position: relative;
+            width: 100%;
+            height: 900px;
+            top: -20px;
+            background-color: burlywood;
+        }
+
+        #detail_page > img {
+            position: absolute;
+            width: 200px;
+            height: 300px;
+            margin-left: 50px;
+            margin-top: 50px;
+        }
+
+        #detail_page > p {
+            position: relative;
+            top: 50px;
+            margin-left: 270px;
+        }
+
+        #detail_page > a > button {
+            position: relative;
+            top: 170px;
+            left: 270px;
+        }
+
+        #chapter {
+            position: relative;
+            top: 200px;
+            left: 50px;
+        }
+
+    </style>
+{% endblock %}
+
+{% load staticfiles %}
+
+{% block page_jq %}
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script type="text/javascript" language="JavaScript">
+        $(function () {
+            $('#add_cars').click(function () {
+                let add_url = '{% url "add" %}';
+                let data = {
+                    book_id: {{ books.book_id }},
+                    number: $('#number').val(),
+                };
+                $.post(add_url, data, function (result) {
+                    if (result && result.status === 200) {
+                        alert('添加成功!')
+                    } else if (result.status === 401) {
+                        window.href = result.url;
+                        alert('请先登录!');
+                    }
+                })
+            })
+        })
+    </script>
+{% endblock %}
+
+{% block page_head %}
+
+    {% include 'home/home_top_page.html' %}
+
+{% endblock %}
+
+{% block page_main %}
+    {% include 'tt/info.html' %}
+{% endblock %}
+
+{% block page_footer %}
+
+{% endblock %}
